@@ -1,0 +1,6 @@
+name: master_bedroom_off
+entities:
+  light.master_bedroom:
+    state: off
+  light.master_bedroom_hallway:
+    state: off

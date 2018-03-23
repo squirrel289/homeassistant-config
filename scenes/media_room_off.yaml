@@ -1,0 +1,6 @@
+name: Media Room Off
+entities:
+  light.media_room_floor_lamps:
+    state: off
+  light.media_room:
+    state: off

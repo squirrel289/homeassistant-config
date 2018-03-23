@@ -1,0 +1,6 @@
+name: Master Bedroom Hallway On
+entities:
+  light.master_bedroom_hallway:
+    state: on
+    brightness: 255
+    color_temp: 327

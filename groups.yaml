@@ -1,0 +1,194 @@
+default_view:
+  view: yes
+  icon: mdi:home 
+  entities:
+  - configurator.ecobee
+  - group.climate
+  - group.deliveries
+  - group.occupancy
+  - sensor.crime
+  - group.cameras
+  - group.tracking
+
+Climate:
+  entities:
+  - climate.thermostat_
+  - sun.sun
+  - sensor.yr_symbol
+
+Occupancy:
+  entities:
+  - binary_sensor.basement_occupancy
+  - binary_sensor.living_room_occupancy
+  - binary_sensor.kitchen_occupancy
+  - binary_sensor.thermostat__occupancy
+  - binary_sensor.master_bedroom_occupancy
+  - binary_sensor.third_floor_occupancy
+
+Cameras:
+  entities:
+#  - camera.backyard
+  - camera.home_front_exterior
+  - camera.living_room_interior
+  - camera.house_rear_exterior
+  - camera.master_bathroom_interior
+  - camera.third_floor_rear_interior
+  - sensor.last_third_floor_rear_interior
+
+Tracking:
+  entities:
+  - device_tracker.melanies_iphone
+#  - sensor.breaches_mjcaldwell24hotmailcom
+#  - sensor.breaches_mjcaldwell24gmailcom
+#  - sensor.breaches_dz_princesshotmailcom
+  - device_tracker.lemur
+#  - sensor.breaches_chriscaldwell289gmailcom
+#  - sensor.breaches_chriscaldwell289hotmailcom
+#  - sensor.breaches_homeassistant289gmailcom
+#  - sensor.breaches_noone289hotmailcom
+
+Deliveries:
+  entities:
+  - camera.usps_mail
+  - sensor.usps_mail
+  - sensor.usps_packages
+
+###########################################################################
+Basement:
+  view: yes
+  name: "B"
+  entities:
+  - group.media_room
+  - group.study
+  - group.guest_bedroom
+  - binary_sensor.basement_occupancy
+  - sensor.basement_temperature
+  
+Media Room:
+  entities:
+  - remote.media_room_tv
+  - group.media_room_ceiling_lights
+  - light.media_room_floor_lamps
+  - media_player.media_room_tv
+  - media_player.plex_media_room_tv
+  - media_player.samsung_tv_remote
+  - media_player.media_room_receiver
+
+Media Room Ceiling Lights:
+  entities:
+  - light.media_room_front_left
+  - light.media_room_front_right
+  - light.media_room_back_left
+  - light.media_room_back_right
+  
+Media Room Lights Front:
+  entities:
+  - light.media_room_front_left
+  - light.media_room_front_right
+
+Media Room Lights Back:
+  entities:
+  - light.media_room_back_left
+  - light.media_room_back_right
+
+Study:
+  entities:
+  - light.study_lights
+  - binary_sensor.basement_occupancy
+  - sensor.basement_temperature
+  - automation.motion_detected_in_study
+  - automation.study_is_vacant
+
+Guest Bedroom:
+  entities:
+
+###########################################################################
+First Floor:
+  view: yes
+  name: "1"
+  entities:
+  - group.living_room
+  - group.dining_room
+  - group.kitchen
+  - group.first_floor_hallway
+
+Living Room:
+  entities:
+  - binary_sensor.living_room_occupancy
+  - sensor.living_room_temperature
+  - camera.home_front_exterior
+  - camera.living_room_interior
+
+
+Dining Room:
+  entities:
+  - group.dining_room_lights
+
+Dining Room Lights:
+  entities:
+  - light.dining_room_fr
+  - light.dining_room_fl
+  - light.dining_room_br
+  - light.dining_room_bl
+  
+Kitchen:
+  entities:
+  - binary_sensor.kitchen_occupancy
+  - sensor.kitchen_temperature
+  - media_player.kitchen_tv
+  - remote.kitchen_tv
+
+First Floor Hallway:
+  entities:
+  - light.entry_hallway_main_lights
+
+###########################################################################
+Second Floor:
+  view: yes
+  name: "2"
+  entities:
+  - group.second_bedroom
+  - group.second_floor_stair
+  - group.master_bedroom
+  - group.master_bathroom
+
+Second Bedroom:
+  entities:
+
+Second Floor Stair:
+  entities:
+  - binary_sensor.thermostat__occupancy
+  - climate.thermostat_
+  - sensor.thermostat__temperature
+  - sensor.thermostat__humidity
+
+Master Bedroom:
+  entities:
+  - binary_sensor.master_bedroom_occupancy
+  - sensor.master_bedroom_temperature
+  - light.master_bedroom
+  - light.master_bedroom_hallway
+
+Master Bathroom:
+  entities:
+  - camera.master_bathroom_interior
+
+###########################################################################
+Third Floor:
+  view: yes
+  name: "3"
+  entities:
+  - group.third_bedroom
+  - group.family_room
+
+Third Bedroom:
+  entities:
+
+Family Room:
+  entities:
+  - binary_sensor.third_floor_occupancy
+  - sensor.third_floor_temperature
+  - media_player.family_room_tv
+  - media_player.plex_family_room_tv
+  - camera.third_floor_rear_interior
+  - media_player.pioneer_avr

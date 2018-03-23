@@ -1,0 +1,238 @@
+# Master Bedroom
+- action:
+  - data:
+      entity_id: scene.master_bedroom_off
+    service: scene.turn_on
+  alias: Master Bedroom Pico Off
+  condition: []
+  id: 'master_bedroom_pico_off'
+  trigger:
+  - entity_id: sensor.master_bedroom_pico
+    platform: state
+    to: '4'
+- action:
+  - data:
+      entity_id: scene.master_bedroom_hallway_on
+    service: scene.turn_on
+  alias: Master Bedroom Hallway Pico On
+  condition: []
+  id: 'master_bedroom_hallway_pico_on'
+  trigger:
+  - entity_id: sensor.master_bedroom_pico
+    platform: state
+    to: '1'
+- action:
+  - data:
+      entity_id: scene.master_bedroom_blue
+    service: scene.turn_on
+  alias: Master Bedroom Pico Favorite
+  condition: []
+  id: master_bedroom_pico_favorite
+  trigger:
+  - entity_id: sensor.master_bedroom_pico
+    platform: state
+    to: '2'
+- id: master_bedroom_pico_raise
+  alias: Master Bedroom Pico Brighten
+  initial_state: true
+  trigger:
+  - entity_id: sensor.master_bedroom_pico
+    platform: state
+    to: '8'
+  action:
+  - data_template:
+      brightness: '{% if is_state(''light.master_bedroom'', ''off'') %} 30 {% else %}
+        {% set suggested = states.light.master_bedroom.attributes.brightness|int + 25
+        %} {% if suggested < 256 %} {{ suggested }} {% else %} 255 {% endif %} {%
+        endif %}
+
+        '
+    entity_id: group.master_bedroom
+    service: light.turn_on
+- id: master_bedroom_remote_lower
+  alias: Master_Bedroom Pico Dim
+  initial_state: true
+  trigger:
+  - entity_id: sensor.master_bedroom_pico
+    platform: state
+    to: '16'
+  action:
+  - data_template:
+      brightness: '{% if is_state(''light.master_bedroom'', ''off'') %} 0 {% else %} {%
+        set suggested = states.light.master_bedroom.attributes.brightness|int - 25 %}
+        {% if suggested > 30 %} {{ suggested }} {% else %} 0 {% endif %} {% endif
+        %}
+
+        '
+    entity_id: group.master_bedroom
+    service: light.turn_on
+- action:
+  - data:
+      entity_id: scene.master_bedroom_full_on
+    service: scene.turn_on
+  alias: Master Bedroom Full On
+  condition:
+  - above: '254'
+    condition: numeric_state
+    entity_id: light.master_bedroom_hallway
+    value_template: '{{ states.light.master_bedroom_hallway.attributes.brightness }}'
+  id: master_bedroom_pico_full_on
+  trigger:
+  - entity_id: sensor.master_bedroom_pico
+    platform: state
+    to: '1'
+
+# Dining Room
+- action:
+  - data:
+      entity_id: scene.dining_room_off
+    service: scene.turn_on
+  alias: Dining Room Pico Off
+  condition: []
+  id: dining_room_pico_off
+  trigger:
+  - entity_id: sensor.dining_room_pico
+    platform: state
+    to: '4'
+- action:
+  - data:
+      entity_id: scene.dining_room_on
+    service: scene.turn_on
+  alias: Dining Room Pico On
+  condition: []
+  id: dining_room_pico_on
+  trigger:
+  - entity_id: sensor.dining_room_pico
+    platform: state
+    to: '1'
+- action:
+  - data:
+      entity_id: scene.dining_room_blue
+    service: scene.turn_on
+  alias: Dining Room Pico Favorite
+  condition: []
+  id: dining_room_pico_favorite
+  trigger:
+  - entity_id: sensor.dining_room_pico
+    platform: state
+    to: '2'
+- id: dining_room_pico_raise
+  alias: Dining Room Pico Brighten
+  initial_state: true
+  trigger:
+  - entity_id: sensor.dining_room_pico
+    platform: state
+    to: '8'
+  action:
+  - data_template:
+      brightness: '{% if is_state(''light.dining_room'', ''off'') %} 30 {% else %}
+        {% set suggested = states.light.dining_room.attributes.brightness|int + 25
+        %} {% if suggested < 256 %} {{ suggested }} {% else %} 255 {% endif %} {%
+        endif %}
+
+        '
+    entity_id: light.dining_room
+    service: light.turn_on
+- id: dining_room_remote_lower
+  alias: Dining Room Pico Dim
+  initial_state: true
+  trigger:
+  - entity_id: sensor.dining_room_pico
+    platform: state
+    to: '16'
+  action:
+  - data_template:
+      brightness: '{% if is_state(''light.dining_room'', ''off'') %} 0 {% else %} {%
+        set suggested = states.light.dining_room.attributes.brightness|int - 25 %}
+        {% if suggested > 30 %} {{ suggested }} {% else %} 0 {% endif %} {% endif
+        %}
+
+        '
+    entity_id: light.dining_room
+    service: light.turn_on
+
+# Media Room
+- action:
+  - data:
+      entity_id: scene.media_room_off
+    service: scene.turn_on
+  alias: Media Room pRemote Off
+  condition: []
+  id: '1520990040598'
+  trigger:
+  - entity_id: sensor.media_room_pico
+    platform: state
+    to: '4'
+- action:
+  - data:
+      entity_id: scene.media_room_on
+    service: scene.turn_on
+  alias: Media Room pRemote On
+  condition: []
+  id: '1520990236016'
+  trigger:
+  - entity_id: sensor.media_room_pico
+    platform: state
+    to: '1'
+- action:
+  - data:
+      brightness_pct: 1
+      color_name: blue
+      entity_id: light.media_room
+    service: light.turn_on
+  alias: Media Room pRemote Favorite
+  condition: []
+  id: '1520990328936'
+  trigger:
+  - entity_id: sensor.media_room_pico
+    platform: state
+    to: '2'
+- id: media_room_remote_raise
+  alias: Media Room pRemote Brighten
+  initial_state: true
+  trigger:
+  - entity_id: sensor.media_room_pico
+    platform: state
+    to: '8'
+  action:
+  - data_template:
+      brightness: '{% if is_state(''light.media_room'', ''off'') %} 30 {% else %}
+        {% set suggested = states.light.media_room.attributes.brightness|int + 25
+        %} {% if suggested < 256 %} {{ suggested }} {% else %} 255 {% endif %} {%
+        endif %}
+
+        '
+    entity_id: light.media_room
+    service: light.turn_on
+- id: media_room_remote_lower
+  alias: Media Room pRemote Dim
+  initial_state: true
+  trigger:
+  - entity_id: sensor.media_room_pico
+    platform: state
+    to: '16'
+  action:
+  - data_template:
+      brightness: '{% if is_state(''light.media_room'', ''off'') %} 0 {% else %} {%
+        set suggested = states.light.media_room.attributes.brightness|int - 25 %}
+        {% if suggested > 30 %} {{ suggested }} {% else %} 0 {% endif %} {% endif
+        %}
+
+        '
+    entity_id: light.media_room
+    service: light.turn_on
+- action:
+  - data:
+      entity_id: scene.media_room_full_on
+    service: scene.turn_on
+  alias: Media Room pRemote Full On
+  condition:
+  - above: '254'
+    condition: numeric_state
+    entity_id: light.media_room
+    value_template: '{{ states.light.media_room.attributes.brightness }}'
+  id: '1521090201814'
+  trigger:
+  - entity_id: sensor.media_room_pico
+    platform: state
+    to: '1'

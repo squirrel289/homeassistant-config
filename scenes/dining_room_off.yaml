@@ -1,0 +1,4 @@
+name: Dining Room Off
+entities:
+  light.dining_room:
+    state: off

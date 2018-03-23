@@ -1,0 +1,156 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: !secret name
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  
+  customize: !include customize.yaml
+  customize_glob:
+    "binary.*_occupancy":
+      device_class: occupancy
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_api_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: !secret http_base_url
+#   use_x_forwarded_for: True
+  login_attempts_threshold: 5
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+  ignore:
+  - apple_tv
+  - plex_mediaserver
+  - samsung_tv
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor yr:
+  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+cloud:
+  alexa:
+    filter:
+      include_domains:
+      - light
+      exclude_entities:
+      - light.media_room_back_left
+      - light.media_room_back_right
+      - light.media_room_front_left
+      - light.media_room_front_right
+
+group: !include groups.yaml
+automation: !include automations.yaml
+zone: !include zones.yaml
+scene: !include_dir_list scenes
+script: !include scripts.yaml
+media_player: !include media_players.yaml
+
+deconz:
+  host: 192.168.1.20
+
+apple_tv:
+- name: Kitchen TV
+  host: 192.168.1.65
+  login_id: !secret appletv_login_id
+  start_off: true
+- name: Media Room TV
+  host: 192.168.1.47
+  login_id: !secret appletv_login_id
+  start_off: true
+- name: Family Room TV
+  host: 192.168.1.42
+  login_id: !secret appletv_login_id
+  start_off: true
+
+august:
+  login_method: phone
+  username: !secret august_username
+  password: !secret august_password
+
+#ecobee:
+#  api_key:  
+
+ios:
+
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+
+arlo:
+  username: !secret arlo_user
+  password: !secret arlo_pwd
+
+sensor arlo:
+- platform: arlo
+  monitored_conditions:
+
+camera arlo:
+- platform: arlo
+  ffmpeg_arguments: '-pred 1 -q:v 2'
+
+alarm_control_panel:
+  - platform: arlo
+
+sensor crime:
+- platform: crimereports
+  name: crime
+  radius: 2000
+
+sensor pwned:
+- platform: haveibeenpwned
+  email: !secret pwned_email
+
+lutron_caseta_pro:
+  bridges:
+  - host: !secret lutron_host
+
+# usps:
+#  username: !secret usps_user
+#  password: !secret usps_pwd
+
+#camera usps:
+#- platform: usps
+#  scan_interval: 5
+
+#sensor usps:
+#- platform: usps

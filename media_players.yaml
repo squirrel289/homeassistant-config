@@ -1,0 +1,13 @@
+- platform: denonavr
+  host: 192.168.1.77
+
+- platform: samsungtv
+  host: 192.168.1.224
+  port: 8001
+
+#- platform: plex
+#  entity_namespace: 'plex'
+#  use_episode_art: true
+
+- platform: pioneer
+  host: 192.168.1.217

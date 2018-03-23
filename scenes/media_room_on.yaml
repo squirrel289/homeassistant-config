@@ -1,0 +1,20 @@
+name: Media Room On
+entities:
+  light.media_room_front_left:
+    state: on
+    brightness: 255
+  light.media_room_front_right:
+    state: on
+    brightness: 255
+  light.media_room:
+    state: on
+    brightness: 255
+    color_temp: 327
+  light.media_room_back_left:
+    state: on
+    brightness: 255
+  light.media_room_back_right:
+    state: on
+    brightness: 255
+  light.media_room_floor_lamps:
+    state: off

@@ -1,0 +1,34 @@
+- name: !secret zone_school1_name
+  latitude: !secret zone_school1_latitude
+  longitude: !secret zone_school1_longitude
+  radius: 250
+  icon: mdi:school
+
+- name: !secret zone_school2_name
+  latitude: !secret zone_school2_latitude
+  longitude: !secret zone_school2_longitude
+  radius: 250
+  icon: mdi:school
+
+- name: !secret zone_work1_name
+  latitude: !secret zone_work1_latitude
+  longitude: !secret zone_work1_longitude
+  icon: mdi:domain
+
+- name: !secret zone_work2_name
+  latitude: !secret zone_work2_latitude
+  longitude: !secret zone_work2_longitude
+  icon: mdi:domain
+
+- name: Nana and Pop
+  latitude: !secret zone_np_latitude
+  longitude: !secret zone_np_longitude
+  radius: 100
+  icon: mdi:home
+
+# This will override the default home zone
+- name: Home
+  latitude: !secret zone_home_latitude
+  longitude: !secret zone_home_longitude
+  radius: 10  
+  icon: mdi:home

@@ -1,0 +1,9 @@
+name: Media Room Full On
+entities:
+  light.media_room_floor_lamps:
+    state: on
+    brightness: 255
+  light.media_room:
+    state: on
+    brightness: 255
+    color_temp: 327
