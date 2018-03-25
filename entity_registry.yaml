@@ -1,0 +1,64 @@
+remote.media_room_tv:
+  name:
+  platform: apple_tv
+  unique_id: a36cafa65ef55934cfc778695ff5a4daa9b293244500f79491d9d1c789593707
+remote.kitchen_tv:
+  name:
+  platform: apple_tv
+  unique_id: 1849a7599cce593e492205d6c4b5ada494b43d4cd77e7c17edbacf0a4b6d9a48
+remote.family_room_tv:
+  name:
+  platform: apple_tv
+  unique_id: 84b4812195edd00eade601ea1bcd88014093567b46b964d901a9ae31220ff9ca
+media_player.kitchen_tv:
+  name:
+  platform: apple_tv
+  unique_id: 1849a7599cce593e492205d6c4b5ada494b43d4cd77e7c17edbacf0a4b6d9a48
+media_player.family_room_tv:
+  name:
+  platform: apple_tv
+  unique_id: 84b4812195edd00eade601ea1bcd88014093567b46b964d901a9ae31220ff9ca
+media_player.media_room_tv:
+  name:
+  platform: apple_tv
+  unique_id: a36cafa65ef55934cfc778695ff5a4daa9b293244500f79491d9d1c789593707
+light.media_room_back_right:
+  name:
+  platform: deconz
+  unique_id: 84:18:26:00:00:06:32:cf-03
+light.media_room_front_right:
+  name:
+  platform: deconz
+  unique_id: 84:18:26:00:00:06:2e:3f-03
+light.dining_room_fl:
+  name:
+  platform: deconz
+  unique_id: f0:d1:b8:00:00:00:be:20-01
+light.media_room_back_left:
+  name:
+  platform: deconz
+  unique_id: 84:18:26:00:00:06:32:32-03
+light.dining_room_bl:
+  name:
+  platform: deconz
+  unique_id: f0:d1:b8:00:00:00:c5:ef-01
+light.dining_room_fr:
+  name:
+  platform: deconz
+  unique_id: f0:d1:b8:00:00:00:c0:56-01
+light.dining_room_br:
+  name:
+  platform: deconz
+  unique_id: f0:d1:b8:00:00:00:ca:6f-01
+light.media_room_front_left:
+  name:
+  platform: deconz
+  unique_id: 84:18:26:00:00:06:36:b9-03
+sensor.lemur_battery_level:
+  name:
+  platform: ios
+  unique_id: level_lemur
+sensor.lemur_battery_state:
+  name:
+  platform: ios
+  unique_id: state_lemur
