@@ -1,0 +1,206 @@
+title: My Lovely Home Automation
+views:
+  - title: Home
+    cards:
+      - type: media-control
+        entity: media_player.denon_avr
+
+      - type: media-control
+        entity: media_player.family_room_tv
+
+      - type: media-control
+        entity: media_player.family_room_tv_2
+
+      - type: media-control
+        entity: media_player.kitchen
+
+      - type: media-control
+        entity: media_player.lemur
+
+      - type: media-control
+        entity: media_player.media_room
+
+      - type: media-control
+        entity: media_player.media_room_2
+
+      - type: media-control
+        entity: media_player.pioneer_avr
+
+      - type: media-control
+        entity: media_player.samsung_tv_remote
+
+      - type: entities
+        title: Automations
+        show_header_toggle: true
+        entities:
+          - automation.dining_room_pico_brighten
+          - automation.dining_room_pico_dim
+          - automation.dining_room_pico_favorite
+          - automation.dining_room_pico_off
+          - automation.dining_room_pico_on
+          - automation.master_bedroom_full_on
+          - automation.master_bedroom_hallway_pico_on
+          - automation.master_bedroom_pico_brighten
+          - automation.master_bedroom_pico_dim
+          - automation.master_bedroom_pico_favorite
+          - automation.master_bedroom_pico_off
+          - automation.media_room_premote_brighten
+          - automation.media_room_premote_dim
+          - automation.media_room_premote_favorite
+          - automation.media_room_premote_full_on
+          - automation.media_room_premote_off
+          - automation.media_room_premote_on
+          - automation.new_automation
+          - automation.set_active_lights_to_new_profile
+          - automation.set_theme_to_candlelight
+          - automation.set_theme_to_duskdawn
+          - automation.set_theme_to_incandescent
+          - automation.set_theme_to_sunny
+          - automation.set_theme_to_sunrisesunset
+
+      - type: entities
+        title: Binary Sensors
+        show_header_toggle: true
+        entities:
+          - binary_sensor.lumisensor_wleakaq1
+          - binary_sensor.lumisensor_wleakaq1_2
+          - binary_sensor.lumisensor_wleakaq1_3
+
+      - type: entities
+        title: Groups
+        show_header_toggle: true
+        entities:
+          - group.all_automations
+          - group.all_lights
+          - group.all_remotes
+          - group.all_scripts
+          - group.basement
+          - group.basement_lights
+          - group.cameras
+          - group.climate
+          - group.default_view
+          - group.deliveries
+          - group.dining_room
+          - group.dining_room_lights
+          - group.family_room
+          - group.first_floor
+          - group.first_floor_hallway
+          - group.first_floor_lights
+          - group.guest_bedroom
+          - group.kitchen
+          - group.library
+          - group.lights
+          - group.living_room
+          - group.master_bathroom
+          - group.master_bedroom
+          - group.media_room
+          - group.media_room_ceiling_lights
+          - group.media_room_lights_back
+          - group.media_room_lights_front
+          - group.occupancy
+          - group.second_bedroom
+          - group.second_floor
+          - group.second_floor_lights
+          - group.second_floor_stair
+          - group.stairway_lights
+          - group.study
+          - group.third_bedroom
+          - group.third_floor
+          - group.third_floor_lights
+          - group.third_floor_stairway
+          - group.tracking
+
+      - type: entities
+        title: Input Select
+        show_header_toggle: true
+        entities:
+          - input_select.current_light_profile
+
+      - type: entities
+        title: Lights
+        show_header_toggle: true
+        entities:
+          - light.dining_room
+          - light.dining_room_bl
+          - light.dining_room_br
+          - light.dining_room_fl
+          - light.dining_room_fr
+          - light.entry_hallway_lights
+          - light.kitchen_lights
+          - light.library_lights
+          - light.living_room_lights
+          - light.master_bedroom
+          - light.master_bedroom_back
+          - light.master_bedroom_bl
+          - light.master_bedroom_br
+          - light.master_bedroom_fl
+          - light.master_bedroom_fr
+          - light.master_bedroom_front
+          - light.master_bedroom_hallway
+          - light.media_room
+          - light.media_room_back_left
+          - light.media_room_back_right
+          - light.media_room_floor_lamps
+          - light.media_room_front_left
+          - light.media_room_front_right
+          - light.stairs_lights
+          - light.study_lights
+          - light.upstairs_hallway_lights
+          - light.upstairs_stairwell_chandelier
+
+      - type: entities
+        title: Remotes
+        show_header_toggle: true
+        entities:
+          - remote.family_room_tv
+          - remote.kitchen
+          - remote.media_room
+
+      - type: entities
+        title: Scenes
+        show_header_toggle: true
+        entities:
+          - scene.dining_room_default_white
+          - scene.leaving_home
+          - scene.media_room_default_white
+
+      - type: entities
+        title: Scripts
+        show_header_toggle: true
+        entities:
+          - script.1521084532691
+          - script.1521090012983
+
+      - type: entities
+        title: Sensors
+        show_header_toggle: true
+        entities:
+          - sensor.daylight
+          - sensor.dining_room_pico
+          - sensor.entry_hallway_pico
+          - sensor.front_foyer_pico
+          - sensor.kitchen_pico
+          - sensor.laundry_room_pico
+          - sensor.master_bedroom_bedside_pico
+          - sensor.master_bedroom_hallway_pico
+          - sensor.master_bedroom_wall_pico
+          - sensor.media_room_pico
+          - sensor.stairs_pico
+          - sensor.study_pico
+          - sensor.upstairs_stairwell_pico
+          - sensor.yr_symbol
+
+      - type: entities
+        title: Sun
+        show_header_toggle: true
+        entities:
+          - sun.sun
+
+      - type: entities
+        title: Zones
+        show_header_toggle: true
+        entities:
+          - zone.fedhillprep
+          - zone.home
+          - zone.nana_and_pop
+          - zone.tjems

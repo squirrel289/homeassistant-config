@@ -1,12 +1,1 @@
-- name: Blue
-  entities:
-    light.media_room_floor_lamps: off
-    group.media_room_lights:
-      state: on
-      xy_color: [0.15, 0.06]
-      brightness: 1
-- name: Movies
-  entities:
-    group.media_room_lights: off
-    light.ceiling: off
-    light.media_room_floor_lamps: off
+

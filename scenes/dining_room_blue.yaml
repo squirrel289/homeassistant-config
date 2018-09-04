@@ -1,6 +1,0 @@
-name: Dining Room Blue
-entities:
-  light.dining_room:
-    state: on
-    brightness_pct: 1
-    color_name: "blue"

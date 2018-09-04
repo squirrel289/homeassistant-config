@@ -1,15 +1,1 @@
-'1521084532691':
-  alias: Set Media Room Lighting to Favorite
-  sequence:
-  - data:
-      entity_id: light.media_room
-    service: light.turn_on
-  - data:
-      entity_id: light.media_room_floor_lamps
-    service: light.turn_off
-'1521090012983':
-  alias: Turn On All Media Room Lights
-  sequence:
-  - data:
-      entity_name: scene.media_room_full_on
-    service: scene.turn_on
+

@@ -1,27 +1,8 @@
-group.media_room_lights:
-  entity_id:
-  - group.media_room_lights_front
-  - group.media_room_lights_back
-  - light.media_room_floor_lamps
-group.study:
-  entity_id:
-  - light.study_main_lights
-  - binary_sensor.basement_occupancy
-  - sensor.basement_temperature
-  - automation.motion_detected_in_study
-  - automation.study_is_vacant
+light.master_bedroom:
+  homebridge_visible: 'true'
+light.master_bedroom_hallway:
+  homebridge_visible: 'true'
 light.media_room:
-  friendly_name: Media Room Can Lights
-  homebridge_visible: 'true'
-light.media_room_front_left:
-  homebridge_visible: 'true'
-light.media_room_front_right:
-  homebridge_visible: 'true'
-light.media_room_back_left:
-  homebridge_visible: 'true'
-light.media_room_back_right:
   homebridge_visible: 'true'
 light.dining_room:
-  homebridge_visible: 'true'
-light.master_bedroom:
   homebridge_visible: 'true'

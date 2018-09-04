@@ -1,9 +1,0 @@
-name: Master Bedroom Blue
-entities:
-  light.master_bedroom_hallway:
-    state: off
-    color_name: "blue"
-  light.master_bedroom:
-    state: on
-    brightness_pct: 1
-    color_name: "blue"

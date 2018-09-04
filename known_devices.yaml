@@ -1,18 +1,1 @@
 
-melanies_iphone:
-  hide_if_away: false
-  icon:
-  mac:
-  name: Melanie
-  picture:
-  track: true
-  vendor:
-
-lemur:
-  hide_if_away: false
-  icon:
-  mac:
-  name: Chris
-  picture:
-  track: true
-  vendor:

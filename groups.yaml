@@ -2,11 +2,10 @@ default_view:
   view: yes
   icon: mdi:home 
   entities:
-  - configurator.ecobee
   - group.climate
+  - group.all_lights
   - group.deliveries
   - group.occupancy
-  - sensor.crime
   - group.cameras
   - group.tracking
 
@@ -54,6 +53,60 @@ Deliveries:
   - sensor.usps_packages
 
 ###########################################################################
+Lights:
+  view: yes
+  icon: mdi:lightbulb
+  entities:
+  - group.all_lights
+  - input_select.current_light_profile
+    #  - group.stairway_lights
+    #  - group.basement_lights
+    #  - group.first_floor_lights
+    #  - group.second_floor_lights
+    #  - group.third_floor_lights
+  
+Stairway Lights:
+  entities:
+  - light.study_lights
+  - light.entry_hallway_lights
+  - light.stairs_lights
+  - light.library_lights
+  - light.upstairs_stairwell_chandelier
+  - light.upstairs_hallway_lights
+
+Basement Lights:
+  entities:
+  - light.study_lights
+  - group.media_room_ceiling_lights
+  - light.media_room_floor_lamps
+
+First Floor Lights:
+  entities:
+  - light.entry_hallway_lights
+  - light.living_room_lights
+  - group.dining_room_lights
+  - light.kitchen_lights
+
+Second Floor Lights:
+  entities:
+  - light.stairs_lights
+  - light.library_lights
+  - light.master_bedroom
+  - light.master_bedroom_hallway
+
+Third Floor Lights:
+  entities:
+  - light.upstairs_stairway_chandelier
+  - light.upstairs_hallway_lights
+
+All Lights:
+  - group.stairway_lights
+  - group.basement_lights
+  - group.first_floor_lights
+  - group.second_floor_lights
+  - group.third_floor_lights
+
+###########################################################################
 Basement:
   view: yes
   name: "B"
@@ -69,13 +122,14 @@ Media Room:
   - remote.media_room_tv
   - group.media_room_ceiling_lights
   - light.media_room_floor_lamps
-  - media_player.media_room_tv
+  - media_player.media_room
   - media_player.plex_media_room_tv
-  - media_player.samsung_tv_remote
-  - media_player.media_room_receiver
+  - media_player.media_room_un65js8000
+  - media_player.marantz_nr1606
 
 Media Room Ceiling Lights:
   entities:
+  - light.media_room
   - light.media_room_front_left
   - light.media_room_front_right
   - light.media_room_back_left
@@ -101,7 +155,9 @@ Study:
 
 Guest Bedroom:
   entities:
-
+  - binary_sensor.water
+  - binary_sensor.water_1
+  - binary_sensor.water_2
 ###########################################################################
 First Floor:
   view: yes
@@ -114,11 +170,11 @@ First Floor:
 
 Living Room:
   entities:
+  - light.living_room_lights
   - binary_sensor.living_room_occupancy
   - sensor.living_room_temperature
   - camera.home_front_exterior
   - camera.living_room_interior
-
 
 Dining Room:
   entities:
@@ -133,14 +189,15 @@ Dining Room Lights:
   
 Kitchen:
   entities:
+  - light.kitchen_lights
   - binary_sensor.kitchen_occupancy
   - sensor.kitchen_temperature
-  - media_player.kitchen_tv
+  - media_player.kitchen
   - remote.kitchen_tv
 
 First Floor Hallway:
   entities:
-  - light.entry_hallway_main_lights
+  - light.entry_hallway_lights
 
 ###########################################################################
 Second Floor:
@@ -149,6 +206,7 @@ Second Floor:
   entities:
   - group.second_bedroom
   - group.second_floor_stair
+  - group.library
   - group.master_bedroom
   - group.master_bathroom
 
@@ -157,10 +215,15 @@ Second Bedroom:
 
 Second Floor Stair:
   entities:
+  - light.stairs_lights
+
+Library:
+  entities:
   - binary_sensor.thermostat__occupancy
   - climate.thermostat_
   - sensor.thermostat__temperature
   - sensor.thermostat__humidity
+  - light.library_lights
 
 Master Bedroom:
   entities:
@@ -179,16 +242,23 @@ Third Floor:
   name: "3"
   entities:
   - group.third_bedroom
+  - group.third_floor_stairway
   - group.family_room
 
 Third Bedroom:
   entities:
+
+Third Floor Stairway:
+  entities:
+  - light.upstairs_stairwell_chandelier
+  - light.upstairs_hallway_lights
 
 Family Room:
   entities:
   - binary_sensor.third_floor_occupancy
   - sensor.third_floor_temperature
   - media_player.family_room_tv
-  - media_player.plex_family_room_tv
+  - media_player.family_room_tv_2
+  - remote.family_room_tv
   - camera.third_floor_rear_interior
   - media_player.pioneer_avr

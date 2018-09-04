@@ -10,16 +10,6 @@
   radius: 250
   icon: mdi:school
 
-- name: !secret zone_work1_name
-  latitude: !secret zone_work1_latitude
-  longitude: !secret zone_work1_longitude
-  icon: mdi:domain
-
-- name: !secret zone_work2_name
-  latitude: !secret zone_work2_latitude
-  longitude: !secret zone_work2_longitude
-  icon: mdi:domain
-
 - name: Nana and Pop
   latitude: !secret zone_np_latitude
   longitude: !secret zone_np_longitude

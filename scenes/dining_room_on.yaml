@@ -1,6 +1,0 @@
-name: Dining Room On
-entities:
-  light.dining_room:
-    state: on
-    brightness: 255
-    color_temp: 327
