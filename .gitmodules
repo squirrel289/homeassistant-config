@@ -1,0 +1,12 @@
+[submodule "themes/home-assistant-community-themes"]
+	path = themes/home-assistant-community-themes
+	url = https://github.com/maartenpaauw/home-assistant-community-themes.git
+[submodule "www/kiosk"]
+	path = www/kiosk
+	url = https://gist.github.com/ciotlosm/1f09b330aa5bd5ea87b59f33609cc931
+[submodule "www/custom-lovelace"]
+	path = www/custom-lovelace
+	url = https://github.com/ciotlosm/custom-lovelace.git
+[submodule "custom_updater"]
+	path = custom_updater
+	url = https://github.com/custom-components/custom_updater.git

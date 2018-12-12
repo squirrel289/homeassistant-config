@@ -6,3 +6,53 @@ light.media_room:
   homebridge_visible: 'true'
 light.dining_room:
   homebridge_visible: 'true'
+sensor.media_room_pico:
+  secondary_entity_id: light.media_room_floor_lamps
+  target_entity_id: light.media_room
+light.master_bedroom_bl:
+  hidden: true
+light.master_bedroom_br:
+  hidden: true
+light.master_bedroom_back:
+  hidden: true
+light.master_bedroom_fl:
+  hidden: true
+light.master_bedroom_fr:
+  hidden: true
+light.master_bedroom_front:
+  hidden: true
+light.media_room_back_left:
+  hidden: true
+light.media_room_back_right:
+  hidden: true
+light.media_room_front_left:
+  hidden: true
+light.media_room_front_right:
+  hidden: true
+light.dining_room_bl:
+  hidden: true
+light.dining_room_br:
+  hidden: true
+light.dining_room_fl:
+  hidden: true
+light.dining_room_fr:
+  hidden: true
+sensor.master_bedroom_bedside_pico:
+  secondary_entity_id: light.master_bedroom_hallway
+  target_entity_id: light.master_bedroom
+light.study_lights:
+  homebridge_visible: 'true'
+light.library_lights:
+  homebridge_visible: 'true'
+light.living_room_lights:
+  homebridge_visible: 'true'
+light.kitchen_lights:
+  homebridge_visible: 'true'
+light.entry_hallway_lights:
+  homebridge_visible: 'true'
+light.stairs_lights:
+  homebridge_visible: 'true'
+light.upstairs_stairwell_chandelier:
+  homebridge_visible: 'true'
+light.upstairs_hallway_lights:
+  homebridge_visible: 'true'

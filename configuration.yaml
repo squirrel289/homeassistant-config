@@ -23,15 +23,58 @@ frontend:
 # Enables configuration UI
 config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
+shell_command:
+  lovelace_gen: 'python /config/lovelace-gen.py'
+
+sensor system_monitor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: load_1m
+      - type: since_last_boot
+      - type: last_boot
+
+sensor tautulli:
+  platform: tautulli
+  api_key: 4075696f0a2449ab86214e9326f97c20
+  host: nas-02
+  port: 8181
+  attributes:
+    - magic_title
+
+ecobee:
+  api_key: qG9UhvwUgAkfcwGPx0no0Ne0X8Z0gXbd
+
+custom_updater:
+  show_installable: True
+# component_urls:
+# - ./updaters/components.json
+  card_urls: 
+  - https://raw.githubusercontent.com/kuuji/button-card/0.0.2/tracker.json
+  - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
 
 # Checks for available updates
 # Note: This component will send some information about your system to
 # the developers to assist with development of Home Assistant.
 # For more information, please see:
 # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  include_used_components: true
+
+mqtt:
+  broker: 127.0.0.1
+  username: hassbian
+  password: wassbian
+  discovery: true
+  client_id: hass.hassbian.calan.lan
+
 http:
   # Uncomment this to add a password (recommended!)
   api_password: !secret http_api_password
@@ -51,10 +94,6 @@ http:
   # ssl_certificate: /config/fullchain.pem
   # ssl_key: /config/privkey.pem
 
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
-
 # Discover some devices automatically
 discovery:
 
@@ -73,6 +112,10 @@ map:
 # Track the sun
 sun:
 
+# To support the custom weather card
+weather:
+  - platform: yweather
+
 # Weather prediction
 sensor:
   - platform: yr
@@ -83,11 +126,51 @@ tts:
 
 # Cloud
 cloud:
+  alexa:
+    filter:
+      include_entities:
+      - light.media_room
+      - light.media_room_floor_lamps
+      - light.study_lights
+      - light.dining_room
+      - light.entry_hallway_lights
+      - light.kitchen_lights
+      - light.master_bedroom_hallway
+      - light.master_bedroom
+      - light.library_lights
+      - light.upstairs_hallway_lights
+      - light.upstairs_stairwell_chandelier
+      - light.stairs_lights
+    entity_config:
+       light.master_bedroom:
+        name: Bedroom Lights
+        description: The lights in the master bedroom area
+       light.master_bedroom_hallway:
+        name: Bedroom Hall Lights
+        description: The lights in the master bedroom hallway
+       light.media_room:
+        name: Media Room Lights
+        description: The lights in the media room
+       light.dining_room:
+        name: Dining Room Lights
+        description: The lights in the dining room
+       light.entry_hallway_lights:
+        name: Hallway Lights
+        description: The lights in the first floor hallway area
+       light.stairs_lights:
+        name: Second Floor Stair Lights
+        description: The lights on the stairs the second floor
+       light.library_lights:
+        name: Office Lights
+        description: The lights in the second floor office
+       light.kitchen_lights:
+        name: Kitchen Lights
+        description: The main lights in the kitchen
+       light.study_lights:
+        name: Study Lights
+        description: The lights in the study
 
 ios:
-
-device_tracker:
-- platform: bluetooth_tracker
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -99,6 +182,18 @@ media_player: !include media_players.yaml
 lutron_caseta_pro:
   bridges:
   - host: !secret lutron_host
+
+#usps:
+#  username: !secret usps_user
+#  password: !secret usps_pwd
+#  driver: phantomjs
+
+#camera usps:
+#- platform: usps
+#  scan_interval: 5
+
+#sensor usps:
+#- platform: usps
 
 input_select:
   current_light_profile:

@@ -96,7 +96,7 @@ Second Floor Lights:
 
 Third Floor Lights:
   entities:
-  - light.upstairs_stairway_chandelier
+  - light.upstairs_stairwell_chandelier
   - light.upstairs_hallway_lights
 
 All Lights:

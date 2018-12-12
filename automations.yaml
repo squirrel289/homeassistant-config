@@ -82,22 +82,22 @@
   condition: []
   action:
   - data_template:
-      entity_id: '{{states.light|selectattr("state","equalto","on")|map(attribute="entity_id")|join(",
-        ")}}'
-      profile: '{{states.input_select.current_light_profile.state}}'
+      entity_id: '{{ states.light | selectattr("state", "equalto", "on") | map(attribute="entity_id") | join(", ") }}'
+      profile: '{{ states.input_select.current_light_profile.state }}'
+      transition: 120
     service: light.turn_on
 - id: '1535944998290'
   alias: Set New Light to Active Profile
   trigger:
   - platform: template
-    value_template: '{% if "light." in entity_id %}true{% endif %}'
+    value_template: '{{ states.light | selectattr("state", "equalto", "on") }}'
   condition:
   - condition: template
-    value_template: '{{is_state(trigger.entity_id,"on")}}'
+    value_template: '{{ is_state(trigger.to_state.entity_id, "on") }}'
   action:
   - data: {}
     data_template:
-      entity_id: '{{trigger.to_state.entity_id}}'
-      profile: candlelight
-      transition: 2
+      entity_id: '{{ trigger.to_state.entity_id }}'
+      profile: '{{ states.input_select.current_light_profile.state }}'
+      transition: 120
     service: light.turn_on

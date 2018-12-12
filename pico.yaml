@@ -1,0 +1,86 @@
+- action:
+    service_template: light.turn_off
+    data_template:
+      entity_id: '[ ''{{ trigger.to_state.attributes.target_entity_id }}''{%- if trigger.to_state.attributes.secondary_entity_id -%},''{{ trigger.to_state.attributes.secondary_entity_id }}''{%- endif -%}]'
+  alias: Pico Off
+  condition: []
+  trigger:
+  - entity_id: 
+    - sensor.master_bedroom_bedside_pico
+    - sensor.master_bedroom_wall_pico
+    - sensor.master_bedroom_hallway_pico
+    platform: state
+    to: '4'
+
+- action:
+    service_template: light.turn_on
+    data_template:
+      profile: '{{states.input_select.current_light_profile.state}}'
+      entity_id: >
+        {{ trigger.to_state.attributes.target_entity_id     }}
+  alias: Pico On
+  condition: []
+  trigger:
+  - entity_id: 
+    - sensor.master_bedroom_bedside_pico
+    - sensor.master_bedroom_wall_pico
+    platform: state
+    to: '1'
+
+- alias: Pico Brighten
+  initial_state: true
+  trigger:
+  - entity_id: 
+    - sensor.master_bedroom_bedside_pico
+    - sensor.master_bedroom_wall_pico
+    - sensor.master_bedroom_hallway_pico
+    platform: state
+    to: '8'
+  action:
+    service_template: light.turn_on
+    data_template:
+      brightness: '{% if is_state(trigger.to_state.attributes.target_entity_id, ''off'') %} 30 {% else %}
+        {% set suggested = state_attr(trigger.to_state.attributes.target_entity_id, ''brightness'')|int + 25
+        %} {% if suggested < 256 %} {{ suggested }} {% else %} 255 {% endif %} {%
+        endif %}'
+      entity_id: >
+        [ {{ trigger.to_state.attributes.target_entity_id }}{%- if trigger.to_state.attributes.secondary_entity_id -%},{{ trigger.to_state.attributes.secondary_entity_id }}{%- endif -%}]
+
+- alias: Pico Dim
+  initial_state: true
+  trigger:
+  - entity_id: 
+    - sensor.master_bedroom_bedside_pico
+    - sensor.master_bedroom_wall_pico
+    - sensor.master_bedroom_hallway_pico
+    platform: state
+    to: '16'
+  action:
+    service_template: light.turn_on
+    data_template:
+      brightness: '{% if is_state(trigger.to_state.attributes.target_entity_id, ''off'') %} 0 {% else %} {%
+        set suggested = state_attr(trigger.to_state.attributes.target_entity_id,''brightness'')|int - 25 %}
+        {% if suggested > 30 %} {{ suggested }} {% else %} 0 {% endif %} {% endif
+        %}
+        '
+      entity_id: >
+        [ {{ trigger.to_state.attributes.target_entity_id }}{%- if trigger.to_state.attributes.secondary_entity_id -%},{{ trigger.to_state.attributes.secondary_entity_id }}{%- endif -%}]
+
+- action:
+    service_template: light.turn_on
+    data_template:
+      profile: '{{states.input_select.current_light_profile.state}}'
+      entity_id: >
+        [ {{ trigger.to_state.attributes.target_entity_id }}{%- if trigger.to_state.attributes.secondary_entity_id -%},{{ trigger.to_state.attributes.secondary_entity_id }}{%- endif -%}]
+  alias: Pico Full On
+  condition:
+  - condition: state
+    entity_id: light.master_bedroom
+    #{{ trigger.to_state.attributes.target_entity_id }}
+    state: 'on'
+  trigger:
+  - entity_id: 
+    - sensor.master_bedroom_bedside_pico
+    - sensor.master_bedroom_wall_pico
+    platform: state
+    to: '1'

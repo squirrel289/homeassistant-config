@@ -1,5 +1,5 @@
 - platform: denonavr
-  host: 192.168.1.240
+  #  host: 192.168.1.196
 
 - platform: samsungtv
   host: 192.168.1.253
