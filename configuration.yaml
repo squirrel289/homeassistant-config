@@ -170,6 +170,8 @@ cloud:
         name: Study Lights
         description: The lights in the study
 
+homekit: !include homekit.yaml
+
 ios:
 
 group: !include groups.yaml

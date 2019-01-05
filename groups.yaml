@@ -4,9 +4,7 @@ default_view:
   entities:
   - group.climate
   - group.all_lights
-  - group.deliveries
   - group.occupancy
-  - group.cameras
   - group.tracking
 
 Climate:
@@ -23,16 +21,6 @@ Occupancy:
   - binary_sensor.thermostat__occupancy
   - binary_sensor.master_bedroom_occupancy
   - binary_sensor.third_floor_occupancy
-
-Cameras:
-  entities:
-#  - camera.backyard
-  - camera.home_front_exterior
-  - camera.living_room_interior
-  - camera.house_rear_exterior
-  - camera.master_bathroom_interior
-  - camera.third_floor_rear_interior
-  - sensor.last_third_floor_rear_interior
 
 Tracking:
   entities:
@@ -173,8 +161,6 @@ Living Room:
   - light.living_room_lights
   - binary_sensor.living_room_occupancy
   - sensor.living_room_temperature
-  - camera.home_front_exterior
-  - camera.living_room_interior
 
 Dining Room:
   entities:
@@ -234,7 +220,6 @@ Master Bedroom:
 
 Master Bathroom:
   entities:
-  - camera.master_bathroom_interior
 
 ###########################################################################
 Third Floor:
@@ -260,5 +245,4 @@ Family Room:
   - media_player.family_room_tv
   - media_player.family_room_tv_2
   - remote.family_room_tv
-  - camera.third_floor_rear_interior
   - media_player.pioneer_avr
